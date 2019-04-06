@@ -18,6 +18,7 @@ export class AuthService {
           (res: LoginServerAnswer): LoginServerAnswer => {
             if (!res.error) {
               localStorage.setItem("sn_app_token", res.token);
+              console.log(res);
             }
             return res;
           }
