@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { environment } from "../../../../environments/environment";
+import { environment } from "@env/environment";
 import { LoginServerAnswer } from "../interfaces/login-server-answer";
 import { Observable } from "rxjs";
-import { map, catchError } from "rxjs/operators";
+import { map } from "rxjs/operators";
+import { ResetPasswordServerAnswer } from "../interfaces/reset-password-server-answer";
 
 @Injectable()
 export class AuthService {
@@ -24,5 +25,12 @@ export class AuthService {
           }
         )
       );
+  }
+
+  resetPassword(cred): Observable<ResetPasswordServerAnswer> {
+    return this.http.post<ResetPasswordServerAnswer>(
+      `${this.apiUrl}/public/auth/reset-password`,
+      cred
+    );
   }
 }
