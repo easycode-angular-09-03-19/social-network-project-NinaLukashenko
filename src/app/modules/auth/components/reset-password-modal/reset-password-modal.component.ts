@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
 import { ResetPasswordServerAnswer } from "../../interfaces/reset-password-server-answer";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-reset-password-modal",
@@ -11,7 +12,10 @@ import { ResetPasswordServerAnswer } from "../../interfaces/reset-password-serve
 export class ResetPasswordModalComponent implements OnInit {
   @Output("modalClose") modalCloseEvent = new EventEmitter();
   resetPasswordForm: FormGroup;
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit() {
     this.resetPasswordForm = new FormGroup({
@@ -29,7 +33,14 @@ export class ResetPasswordModalComponent implements OnInit {
       .subscribe(
         (res: ResetPasswordServerAnswer) => {
           if (!res.error) {
-            this.closeModal();
+            this.messageService.add({
+              severity: "success",
+              summary: "Password was reseted successfully",
+              detail: "A new password was sent on your email."
+            });
+            setTimeout(() => {
+              this.closeModal();
+            }, 5500);
           }
         },
         err => {

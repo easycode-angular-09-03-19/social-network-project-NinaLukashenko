@@ -128,5 +128,15 @@
   <p *ngIf="signUpForm.hasError('notEqual')" style="color:red">
     Passwords are not equal (-p)
   </p>
-  <button mat-raised-button color="primary" class="submit-btn">Signup</button>
+  <button
+    mat-raised-button
+    color="primary"
+    class="submit-btn"
+    style="margin: 16px"
+  >
+    Signup
+  </button>
+  <a mat-stroked-button color="primary" routerLink="/auth/login">
+    Back to Sign in
+  </a>
 </form>

@@ -5,6 +5,7 @@ import { days, months, years, genders } from "../../helpers/signup-data";
 import { Router } from "@angular/router";
 import { SignupService } from "../../services/signup.service";
 import { SignupServerAnswer } from "../../interfaces/signup-server-answer";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-signup-form",
@@ -18,7 +19,11 @@ export class SignupFormComponent implements OnInit {
   years = years;
   genders = genders;
   filledForm;
-  constructor(private signupService: SignupService, private router: Router) {}
+  constructor(
+    private signupService: SignupService,
+    private router: Router,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit() {
     this.signUpForm = new FormGroup(
@@ -52,8 +57,15 @@ export class SignupFormComponent implements OnInit {
       this.signupService.signup(form).subscribe(
         (res: SignupServerAnswer) => {
           if (!res.error) {
-            console.log(res);
-            this.router.navigate(["/auth/login"]);
+            this.messageService.add({
+              severity: "success",
+              summary: "User was created successfully",
+              detail:
+                "On your email was sended a link. Please verify your email."
+            });
+            setTimeout(() => {
+              this.router.navigate(["/auth/login"]);
+            }, 5500);
           }
         },
         err => {
