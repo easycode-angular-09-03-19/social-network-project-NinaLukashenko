@@ -1,5 +1,9 @@
 <mat-toolbar *ngIf="!isHidden">
-  <span>Menu</span>
+  <ul class="main-menu">
+    <li><a href="/" routerLink="/">Home</a></li>
+    <li>Challenges</li>
+    <li>Winners</li>
+  </ul>
   <div class="notification-block">
     <button [matMenuTriggerFor]="menu" mat-stroked-button color="primary">
       Notifications
