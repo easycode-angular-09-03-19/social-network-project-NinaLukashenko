@@ -12,7 +12,12 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field class="w-100">
-    <input matInput placeholder="Nickname" formControlName="nickname" />
+    <input
+      matInput
+      placeholder="Nickname"
+      formControlName="nickname"
+      [errorStateMatcher]="matcher"
+    />
     <mat-error *ngIf="signUpForm.get('nickname').hasError('required')">
       Nickname name is <strong>required</strong>
     </mat-error>
@@ -121,13 +126,15 @@
     <mat-error *ngIf="signUpForm.get('repeatPassword').hasError('required')">
       Repeat Password is <strong>required</strong>
     </mat-error>
-    <mat-error *ngIf="signUpForm.hasError('notEqual')">
-      Passwords are not equal (-mat)
+    <mat-error
+      *ngIf="
+        signUpForm.get('repeatPassword').hasError('notEqual') &&
+        !signUpForm.get('repeatPassword').hasError('required')
+      "
+    >
+      Passwords are not equal
     </mat-error>
   </mat-form-field>
-  <p *ngIf="signUpForm.hasError('notEqual')" style="color:red">
-    Passwords are not equal (-p)
-  </p>
   <button
     mat-raised-button
     color="primary"

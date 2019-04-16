@@ -1,0 +1,16 @@
+.challenge-card {
+  margin-bottom: 15px;
+}
+
+.challenge-card mat-card-header {
+  height: 12.5em;
+  background-size: cover;
+  width: auto;
+  background-position: 50% 50%;
+}
+
+.challenge-details {
+  display: flex;
+  justify-content: space-between;
+  color: #ce0caa;
+}

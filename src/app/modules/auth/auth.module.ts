@@ -4,14 +4,21 @@ import { CommonModule } from "@angular/common";
 import { AuthRoutingModule } from "./auth-routing.module";
 import { LoginComponent } from "./pages/login/login.component";
 import { SignupComponent } from "./pages/signup/signup.component";
-import { MatButtonModule, MatCheckboxModule } from "@angular/material";
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  ErrorStateMatcher,
+  ShowOnDirtyErrorStateMatcher
+} from "@angular/material";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { LoginFormComponent } from "./components/login-form/login-form.component";
 import { ResetPasswordModalComponent } from "./components/reset-password-modal/reset-password-modal.component";
-import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { SignupFormComponent } from "./components/signup-form/signup-form.component";
+import { AuthService } from "./services/auth.service";
+import { SignupService } from "./services/signup.service";
 
 @NgModule({
   declarations: [
@@ -31,6 +38,11 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
     MatCardModule,
     MatFormFieldModule,
     MatInputModule
+  ],
+  providers: [
+    AuthService,
+    SignupService,
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
   ]
 })
 export class AuthModule {}

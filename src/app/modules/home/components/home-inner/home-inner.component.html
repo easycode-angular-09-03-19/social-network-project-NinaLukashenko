@@ -1,0 +1,20 @@
+<div class="inner">
+  <div
+    class="inner-main"
+    [style.backgroundImage]="'url(' + data?.homeBackground + ')'"
+  >
+    <div class="inner-main-content">
+      <h1>Most liked Person</h1>
+      <span>Be most wanted</span>
+      <p>{{ data?.innerText }}</p>
+    </div>
+  </div>
+  <div class="inner-desc">
+    <p>
+      <span>{{ data?.cities }} Cities</span
+      ><span>{{ data?.countries }} Counties</span
+      ><span>{{ data?.regions }} Regions</span>
+    </p>
+    <p>You can be one of the winners and we will introduce you to the world</p>
+  </div>
+</div>
