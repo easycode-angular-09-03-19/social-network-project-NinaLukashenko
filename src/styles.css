@@ -11,3 +11,11 @@
 body .ui-toast .ui-toast-message.ui-toast-message-success {
   background-color: #f28ed6;
 }
+
+.cdk-overlay-container .mat-menu-panel {
+  max-width: 425px;
+}
+
+.cdk-overlay-container .mat-menu-panel .mat-menu-item {
+  padding: 0 0 0 1rem;
+}
