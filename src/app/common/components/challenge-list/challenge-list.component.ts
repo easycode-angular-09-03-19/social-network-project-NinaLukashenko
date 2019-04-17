@@ -9,7 +9,5 @@ export class ChallengeListComponent implements OnInit {
   @Input() challenges;
   constructor() {}
 
-  ngOnInit() {
-    // console.log(this.challenges);
-  }
+  ngOnInit() {}
 }
