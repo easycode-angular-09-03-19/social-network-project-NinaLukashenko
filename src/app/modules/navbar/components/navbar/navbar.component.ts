@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, ActivationEnd, Router } from "@angular/router";
 import { filter } from "rxjs/operators";
-import { NotificationService } from "../../../services/notification.service";
 
 @Component({
   selector: "app-navbar",
@@ -10,12 +9,8 @@ import { NotificationService } from "../../../services/notification.service";
 })
 export class NavbarComponent implements OnInit {
   isHidden = true;
-  notifications;
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private notificationService: NotificationService
-  ) {}
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.router.events
@@ -25,14 +20,5 @@ export class NavbarComponent implements OnInit {
           this.isHidden = !!value.withoutHeader;
         });
       });
-    this.notificationService.getNotifications().subscribe(
-      data => {
-        this.notifications = data;
-        console.log(this.notifications);
-      },
-      err => {
-        console.log(err);
-      }
-    );
   }
 }

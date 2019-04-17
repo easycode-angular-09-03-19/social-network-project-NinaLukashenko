@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { GlobalAuthService } from "../../../../services/global-auth.service";
+import { GlobalAuthService } from "../../../../common/services/global-auth.service";
 import { Router } from "@angular/router";
 
 @Component({

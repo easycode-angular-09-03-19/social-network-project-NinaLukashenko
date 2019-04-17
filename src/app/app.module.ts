@@ -3,29 +3,31 @@ import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
-import { NavbarComponent } from "./common/components/navbar/navbar.component";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatMenuModule } from "@angular/material/menu";
-import { NotificationService } from "./services/notification.service";
-import { MatButtonModule } from "@angular/material/button";
+import { NavbarModule } from "./modules/navbar/navbar.module";
+import { TokenInterceptor } from "./interceptors/token.interseptor";
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ToastModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatButtonModule
+    NavbarModule
   ],
-  providers: [MessageService, NotificationService],
+  providers: [
+    MessageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
