@@ -9,6 +9,10 @@ const routes: Routes = [
     data: { withoutHeader: true }
   },
   {
+    path: "users/:id",
+    loadChildren: "./modules/user/user.module#UserModule"
+  },
+  {
     path: "",
     loadChildren: "./modules/home/home.module#HomeModule",
     canActivate: [GlobalAuthGuard]
