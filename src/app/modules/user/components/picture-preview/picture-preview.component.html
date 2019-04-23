@@ -1,5 +1,6 @@
 <mat-card class="selfies-card">
-  <span><i class="fas fa-trash"></i></span>
+  <span *ngIf="isCurrentUser"><i class="fas fa-trash"></i></span>
+  <span *ngIf="!isCurrentUser"><i class="fas fa-heart"></i></span>
   <mat-card-content [ngClass]="'selfies-image'">
     <img mat-card-image [src]="image?.url" />
   </mat-card-content>

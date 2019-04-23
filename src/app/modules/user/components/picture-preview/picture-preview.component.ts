@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class PicturePreviewComponent implements OnInit {
   @Input() image;
+  @Input() isCurrentUser;
   constructor() {}
 
   ngOnInit() {}

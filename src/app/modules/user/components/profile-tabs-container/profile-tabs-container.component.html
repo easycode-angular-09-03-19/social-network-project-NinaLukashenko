@@ -11,7 +11,11 @@
       </button>
     </div>
     <div class="col-12" [ngSwitch]="activeTab">
-      <app-profile-selfies [userId]="userId" *ngSwitchCase="'selfies'">
+      <app-profile-selfies
+        [userId]="userId"
+        [isCurrentUser]="isCurrentUser"
+        *ngSwitchCase="'selfies'"
+      >
       </app-profile-selfies>
     </div>
   </div>

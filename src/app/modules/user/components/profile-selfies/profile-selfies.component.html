@@ -1,7 +1,10 @@
 <div class="row">
   <ng-container *ngFor="let item of images">
     <div class="col-lg-4 col-md-6 col-sm-12">
-      <app-picture-preview [image]="item"></app-picture-preview>
+      <app-picture-preview
+        [image]="item"
+        [isCurrentUser]="isCurrentUser"
+      ></app-picture-preview>
     </div>
   </ng-container>
 </div>

@@ -18,8 +18,13 @@
   margin-left: 1.5rem;
 }
 
-.fa-trash {
+.fa-trash,
+.fa-heart {
   position: absolute;
   top: 15px;
   right: 15px;
+}
+
+.fa-heart {
+  color: pink;
 }

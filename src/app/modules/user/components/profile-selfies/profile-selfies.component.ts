@@ -10,6 +10,7 @@ import { UserPicturesServerAnswer } from "../../../../common/interfaces/user-pic
 })
 export class ProfileSelfiesComponent implements OnInit {
   @Input() userId;
+  @Input() isCurrentUser;
   private images;
   constructor(
     private userService: UserService,
