@@ -1,0 +1,13 @@
+<mat-toolbar *ngIf="!isHidden">
+  <ul class="main-menu">
+    <li><a href="/" routerLink="/">Home</a></li>
+    <li>Challenges</li>
+    <li>Winners</li>
+    <li>
+      <a href="#" *ngIf="userId" [routerLink]="['/users/', userId]"
+        >User profile</a
+      >
+    </li>
+  </ul>
+  <app-notifications></app-notifications>
+</mat-toolbar>

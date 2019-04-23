@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/nova-light/theme.css";
+@import "~primeng/resources/primeng.min.css";
+
+/* Default classes */
+.w-100 {
+  width: 100%;
+}
+
+body .ui-toast .ui-toast-message.ui-toast-message-success {
+  background-color: #f28ed6;
+}
+
+.cdk-overlay-container .mat-menu-panel {
+  max-width: 425px;
+}
+
+.cdk-overlay-container .mat-menu-panel .mat-menu-item {
+  padding: 0 0 0 1rem;
+}

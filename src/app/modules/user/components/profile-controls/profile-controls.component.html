@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="div col-6 profile-data">
+      <div class="profile-image">
+        <img [src]="user?.avatar" />
+      </div>
+      <div>
+        <p>
+          <b>{{ user?.full_name }}</b>
+        </p>
+        <p>{{ user?.country }}</p>
+      </div>
+      <div class="profile-point-info">
+        <p>
+          <b>{{ user?.rank.points }}</b>
+        </p>
+        <p>
+          <i class="fas fa-star light"></i><i class="fas fa-star dark"></i
+          ><i class="fas fa-star darker"></i> points
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

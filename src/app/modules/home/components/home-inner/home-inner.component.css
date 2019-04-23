@@ -1,0 +1,38 @@
+.inner-main {
+  height: 40em;
+  background-size: cover;
+  width: auto;
+  background-position: 50% 50%;
+}
+
+.inner-main-content {
+  width: 100%;
+  max-width: 498px;
+  padding: 42px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.65);
+  height: 100%;
+}
+
+.inner-main-content span {
+  font-weight: bold;
+  color: #ce0caa;
+}
+
+.inner-desc {
+  text-align: center;
+  padding: 20px;
+  background-color: #212121;
+  color: #fff;
+}
+
+.inner .inner-desc span:first-child::before,
+.inner .inner-desc span::after {
+  content: "";
+  display: inline-flex;
+  margin: 0 20px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+}

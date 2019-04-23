@@ -1,0 +1,16 @@
+span.person {
+  color: #ce0caa;
+}
+
+.fa-bell {
+  color: red;
+}
+
+.note-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.note-content button {
+  padding: 0;
+}

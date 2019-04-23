@@ -1,0 +1,18 @@
+<div class="container-fluid profile-tabs-container">
+  <div class="row">
+    <div class="col-12 profile-follow-button">
+      <button
+        *ngIf="!isCurrentUser"
+        mat-raised-button
+        color="primary"
+        class="submit-btn"
+      >
+        Follow
+      </button>
+    </div>
+    <div class="col-12" [ngSwitch]="activeTab">
+      <app-profile-selfies [userId]="userId" *ngSwitchCase="'selfies'">
+      </app-profile-selfies>
+    </div>
+  </div>
+</div>

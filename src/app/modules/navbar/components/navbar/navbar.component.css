@@ -1,0 +1,13 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-menu li {
+  display: inline;
+  padding-right: 1.5rem;
+}
+
+.main-menu a {
+  color: #673ab7;
+}

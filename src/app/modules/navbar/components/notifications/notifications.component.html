@@ -1,0 +1,19 @@
+<div class="notification-block">
+  <button [matMenuTriggerFor]="menu" mat-stroked-button color="primary">
+    Notifications
+    <i class="fas fa-bell" *ngIf="!!notifications?.length && notReadNotes"></i>
+  </button>
+  <mat-menu #menu="matMenu">
+    <ng-container *ngFor="let item of notifications">
+      <div mat-menu-item *ngIf="!item?.readed" class="note-content">
+        <p>
+          <span class="person">{{ item?.user_creator_id.full_name }}</span
+          >&nbsp; {{ item?.message }}
+        </p>
+        <button mat-button color="primary" (click)="onClickClose(item)">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </ng-container>
+  </mat-menu>
+</div>
