@@ -7,6 +7,7 @@ import { GlobalAuthService } from "./global-auth.service";
 import { CurrentUserStoreService } from "./current-user-store.service";
 import { map } from "rxjs/operators";
 import { UploadCoverServerAnswer } from "../interfaces/upload-cover-server-answer";
+import { UserPicturesServerAnswer } from "../interfaces/user-pictures-server-answer";
 
 @Injectable({
   providedIn: "root"
@@ -39,6 +40,12 @@ export class UserService {
     return this.http.post<UploadCoverServerAnswer>(
       `${this.apiUrl}/public/users/upload-cover/${id}`,
       formData
+    );
+  }
+
+  getUserPictures(id: string): Observable<UserPicturesServerAnswer> {
+    return this.http.get<UserPicturesServerAnswer>(
+      `${this.apiUrl}/public/users/my-images/${id}`
     );
   }
 }

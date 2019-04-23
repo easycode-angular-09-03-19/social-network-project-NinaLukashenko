@@ -1,0 +1,8 @@
+<mat-card class="selfies-card">
+  <span><i class="fas fa-trash"></i></span>
+  <mat-card-content [ngClass]="'selfies-image'">
+    <img mat-card-image [src]="image?.url" />
+  </mat-card-content>
+  <span><i class="far fa-thumbs-up"></i> {{ image?.likes.length }}</span>
+  <span><i class="far fa-eye"></i> {{ image?.views.length }}</span>
+</mat-card>

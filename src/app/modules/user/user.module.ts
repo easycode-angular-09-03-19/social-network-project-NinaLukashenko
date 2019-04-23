@@ -1,16 +1,27 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { UserRoutingModule } from './user-routing.module';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { ProfileCoverComponent } from './components/profile-cover/profile-cover.component';
+import { UserRoutingModule } from "./user-routing.module";
+import { ProfileComponent } from "./pages/profile/profile.component";
+import { SettingsComponent } from "./pages/settings/settings.component";
+import { ProfileCoverComponent } from "./components/profile-cover/profile-cover.component";
+import { ProfileControlsComponent } from "./components/profile-controls/profile-controls.component";
+import { ProfileSelfiesComponent } from "./components/profile-selfies/profile-selfies.component";
+import { PicturePreviewComponent } from "./components/picture-preview/picture-preview.component";
+import { ProfileTabsContainerComponent } from "./components/profile-tabs-container/profile-tabs-container.component";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
-  declarations: [ProfileComponent, SettingsComponent, ProfileCoverComponent],
-  imports: [
-    CommonModule,
-    UserRoutingModule
-  ]
+  declarations: [
+    ProfileComponent,
+    SettingsComponent,
+    ProfileCoverComponent,
+    ProfileControlsComponent,
+    ProfileSelfiesComponent,
+    PicturePreviewComponent,
+    ProfileTabsContainerComponent
+  ],
+  imports: [CommonModule, UserRoutingModule, MatButtonModule, MatCardModule]
 })
-export class UserModule { }
+export class UserModule {}
