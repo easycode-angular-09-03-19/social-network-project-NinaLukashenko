@@ -4,6 +4,7 @@
       mat-flat-button
       *ngIf="isCurrentUser"
       [ngClass]="'selfies-card-buttons'"
+      (click)="onBasketClick(image)"
     >
       <i class="fas fa-trash"></i>
     </button>

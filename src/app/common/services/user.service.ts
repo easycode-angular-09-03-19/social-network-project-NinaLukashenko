@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "@env/environment";
 import { Observable } from "rxjs";
 import { UserServerAnswer } from "../interfaces/user-server-answer";
@@ -54,6 +54,23 @@ export class UserService {
     return this.http.put<LikePictureServerAnswer>(
       `${this.apiUrl}/public/users/like-photo/${pictureId}`,
       {}
+    );
+  }
+
+  deletePicture(imageId: string, imageUrl: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": this.globalAuth.token
+      }),
+      body: {
+        imageId,
+        image_url: imageUrl
+      }
+    };
+    const id = this.globalAuth.userId;
+    return this.http.delete(
+      `${this.apiUrl}/public/users/remove-photo/${id}`,
+      httpOptions
     );
   }
 }

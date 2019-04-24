@@ -34,4 +34,22 @@ export class PicturePreviewComponent implements OnInit {
       }
     );
   }
+
+  onBasketClick(image) {
+    const imageId = image._id;
+    const imageUrl = image.url.substring(image.url.indexOf("users-photos/"));
+    this.userService.deletePicture(imageId, imageUrl).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+        this.messageService.add({
+          severity: "error",
+          summary: "Error",
+          detail: "Something went wrong. Deletion was failed."
+        });
+      }
+    );
+  }
 }
