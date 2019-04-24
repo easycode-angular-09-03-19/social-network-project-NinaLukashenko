@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { passwordEqual } from "@helpers/validators";
 import { days, months, years, genders } from "../../helpers/signup-data";
 import { Router } from "@angular/router";
-import { SignupService } from "../../services/signup.service";
+import { AuthService } from "../../services/auth.service";
 import { SignupServerAnswer } from "../../interfaces/signup-server-answer";
 import { MessageService } from "primeng/api";
 
@@ -20,7 +20,7 @@ export class SignupFormComponent implements OnInit {
   genders = genders;
   filledForm;
   constructor(
-    private signupService: SignupService,
+    private authService: AuthService,
     private router: Router,
     private messageService: MessageService
   ) {}
@@ -51,10 +51,9 @@ export class SignupFormComponent implements OnInit {
 
   onSubmit() {
     if (!this.signUpForm.invalid) {
-      this.filledForm = { ...this.signUpForm.value };
-      let { repeatPassword, ...form } = this.filledForm;
+      let { repeatPassword, ...form } = this.signUpForm.value;
 
-      this.signupService.signup(form).subscribe(
+      this.authService.signup(form).subscribe(
         (res: SignupServerAnswer) => {
           if (!res.error) {
             this.messageService.add({
