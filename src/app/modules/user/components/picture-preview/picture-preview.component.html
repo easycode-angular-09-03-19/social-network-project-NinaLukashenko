@@ -1,6 +1,21 @@
 <mat-card class="selfies-card">
-  <span *ngIf="isCurrentUser"><i class="fas fa-trash"></i></span>
-  <span *ngIf="!isCurrentUser"><i class="fas fa-heart"></i></span>
+  <mat-card-actions>
+    <button
+      mat-flat-button
+      *ngIf="isCurrentUser"
+      [ngClass]="'selfies-card-buttons'"
+    >
+      <i class="fas fa-trash"></i>
+    </button>
+    <button
+      mat-flat-button
+      *ngIf="!isCurrentUser"
+      [ngClass]="'selfies-card-buttons'"
+      (click)="onLikeClick(image._id)"
+    >
+      <i class="fas fa-heart"></i>
+    </button>
+  </mat-card-actions>
   <mat-card-content [ngClass]="'selfies-image'">
     <img mat-card-image [src]="image?.url" />
   </mat-card-content>

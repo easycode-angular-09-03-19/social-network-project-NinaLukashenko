@@ -8,6 +8,7 @@ import { CurrentUserStoreService } from "./current-user-store.service";
 import { map } from "rxjs/operators";
 import { UploadCoverServerAnswer } from "../interfaces/upload-cover-server-answer";
 import { UserPicturesServerAnswer } from "../interfaces/user-pictures-server-answer";
+import { LikePictureServerAnswer } from "../interfaces/like-picture-server-answer";
 
 @Injectable({
   providedIn: "root"
@@ -46,6 +47,13 @@ export class UserService {
   getUserPictures(id: string): Observable<UserPicturesServerAnswer> {
     return this.http.get<UserPicturesServerAnswer>(
       `${this.apiUrl}/public/users/my-images/${id}`
+    );
+  }
+
+  likePicture(pictureId: string): Observable<LikePictureServerAnswer> {
+    return this.http.put<LikePictureServerAnswer>(
+      `${this.apiUrl}/public/users/like-photo/${pictureId}`,
+      {}
     );
   }
 }

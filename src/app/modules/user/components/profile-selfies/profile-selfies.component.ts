@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { UserService } from "app/common/services/user.service";
+import { UserService } from "../../../../common/services/user.service";
 import { MessageService } from "primeng/api";
 import { UserPicturesServerAnswer } from "../../../../common/interfaces/user-pictures-server-answer";
 
@@ -18,6 +18,10 @@ export class ProfileSelfiesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.newLike();
+  }
+
+  newLike() {
     this.userService.getUserPictures(this.userId).subscribe(
       (data: UserPicturesServerAnswer) => {
         this.images = data.images;

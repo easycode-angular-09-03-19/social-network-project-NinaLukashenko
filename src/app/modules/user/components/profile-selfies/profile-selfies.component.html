@@ -4,6 +4,7 @@
       <app-picture-preview
         [image]="item"
         [isCurrentUser]="isCurrentUser"
+        (newLike)="newLike()"
       ></app-picture-preview>
     </div>
   </ng-container>

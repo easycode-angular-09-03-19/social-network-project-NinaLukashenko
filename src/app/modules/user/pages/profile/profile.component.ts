@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { GlobalAuthService } from "app/common/services/global-auth.service";
-import { UserService } from "app/common/services/user.service";
+import { GlobalAuthService } from "../../../../common/services/global-auth.service";
+import { UserService } from "../../../../common/services/user.service";
 import { ActivatedRoute } from "@angular/router";
 import { UserServerAnswer } from "../../../../common/interfaces/user-server-answer";
 import { UploadCoverServerAnswer } from "../../../../common/interfaces/upload-cover-server-answer";

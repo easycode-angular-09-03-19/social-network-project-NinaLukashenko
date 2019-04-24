@@ -18,13 +18,21 @@
   margin-left: 1.5rem;
 }
 
-.fa-trash,
-.fa-heart {
+.selfies-card-buttons {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 35px;
+  right: 5px;
+  background-color: transparent;
 }
 
 .fa-heart {
   color: pink;
+}
+
+.fa-heart:hover {
+  color: #ef7ca6;
+}
+
+.fa-trash:hover {
+  color: #491ba0;
 }
