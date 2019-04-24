@@ -18,10 +18,10 @@ export class ProfileSelfiesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.newLike();
+    this.getPictures();
   }
 
-  newLike() {
+  getPictures() {
     this.userService.getUserPictures(this.userId).subscribe(
       (data: UserPicturesServerAnswer) => {
         this.images = data.images;
