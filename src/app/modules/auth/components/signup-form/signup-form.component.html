@@ -1,0 +1,141 @@
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="w-100">
+    <input matInput placeholder="First name" formControlName="first_name" />
+    <mat-error *ngIf="signUpForm.get('first_name').hasError('required')">
+      First name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input matInput placeholder="Last name" formControlName="last_name" />
+    <mat-error *ngIf="signUpForm.get('last_name').hasError('required')">
+      Last name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input matInput placeholder="Nickname" formControlName="nickname" />
+    <mat-error *ngIf="signUpForm.get('nickname').hasError('required')">
+      Nickname name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Day</mat-label>
+    <select matNativeControl required formControlName="date_of_birth_day">
+      <option *ngFor="let item of days" [value]="item">{{ item }}</option>
+    </select>
+    <mat-error *ngIf="signUpForm.get('date_of_birth_day').hasError('required')">
+      Day is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Month</mat-label>
+    <select matNativeControl required formControlName="date_of_birth_month">
+      <option *ngFor="let item of months" [value]="item.value">{{
+        item.viewValue
+      }}</option>
+    </select>
+    <mat-error
+      *ngIf="signUpForm.get('date_of_birth_month').hasError('required')"
+    >
+      Month is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Year</mat-label>
+    <select matNativeControl required formControlName="date_of_birth_year">
+      <option *ngFor="let item of years" [value]="item">{{ item }}</option>
+    </select>
+    <mat-error
+      *ngIf="signUpForm.get('date_of_birth_year').hasError('required')"
+    >
+      Year is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input matInput placeholder="Country" formControlName="country" />
+    <mat-error
+      *ngIf="signUpForm.get('date_of_birth_month').hasError('required')"
+    >
+      Country is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input matInput placeholder="City" formControlName="city" />
+    <mat-error
+      *ngIf="signUpForm.get('date_of_birth_year').hasError('required')"
+    >
+      City is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+    <select matNativeControl required formControlName="gender_orientation">
+      <option *ngFor="let item of genders" [value]="item">{{ item }}</option>
+    </select>
+    <mat-error
+      *ngIf="signUpForm.get('gender_orientation').hasError('required')"
+    >
+      Gender is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input matInput placeholder="Email" formControlName="email" />
+    <mat-error
+      *ngIf="
+        signUpForm.get('email').hasError('email') &&
+        !signUpForm.get('email').hasError('required')
+      "
+    >
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="signUpForm.get('email').hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input matInput placeholder="Phone" formControlName="phone" />
+    <mat-error *ngIf="signUpForm.get('phone').hasError('required')">
+      Phone is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input matInput placeholder="Password" formControlName="password" />
+    <mat-error
+      *ngIf="
+        signUpForm.get('password').hasError('minlength') &&
+        !signUpForm.get('password').hasError('required')
+      "
+    >
+      Minimun length of password should be 8 symbols.
+    </mat-error>
+    <mat-error *ngIf="signUpForm.get('password').hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <input
+      matInput
+      placeholder="Repeat Password"
+      formControlName="repeatPassword"
+    />
+    <mat-error *ngIf="signUpForm.get('repeatPassword').hasError('required')">
+      Repeat Password is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="signUpForm.hasError('notEqual')">
+      Passwords are not equal (-mat)
+    </mat-error>
+  </mat-form-field>
+  <p *ngIf="signUpForm.hasError('notEqual')" style="color:red">
+    Passwords are not equal (-p)
+  </p>
+  <button
+    mat-raised-button
+    color="primary"
+    class="submit-btn"
+    style="margin: 16px"
+  >
+    Signup
+  </button>
+  <a mat-stroked-button color="primary" routerLink="/auth/login">
+    Back to Sign in
+  </a>
+</form>

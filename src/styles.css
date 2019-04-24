@@ -1,6 +1,13 @@
 @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/nova-light/theme.css";
+@import "~primeng/resources/primeng.min.css";
 
 /* Default classes */
 .w-100 {
   width: 100%;
+}
+
+body .ui-toast .ui-toast-message.ui-toast-message-success {
+  background-color: #f28ed6;
 }
