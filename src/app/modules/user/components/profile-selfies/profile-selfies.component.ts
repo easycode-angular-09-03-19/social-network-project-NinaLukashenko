@@ -24,7 +24,9 @@ export class ProfileSelfiesComponent implements OnInit {
   getPictures() {
     this.userService.getUserPictures(this.userId).subscribe(
       (data: UserPicturesServerAnswer) => {
-        this.images = data.images;
+        if (data.images) {
+          this.images = data.images;
+        }
       },
       err => {
         console.log(err);

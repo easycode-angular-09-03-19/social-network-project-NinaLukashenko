@@ -3,7 +3,7 @@ import { GlobalAuthService } from "../../../../common/services/global-auth.servi
 import { UserService } from "../../../../common/services/user.service";
 import { ActivatedRoute } from "@angular/router";
 import { UserServerAnswer } from "../../../../common/interfaces/user-server-answer";
-import { UploadCoverServerAnswer } from "../../../../common/interfaces/upload-cover-server-answer";
+import { ServerMsgAnswer } from "../../../../common/interfaces/server-msg-answer";
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
@@ -38,12 +38,10 @@ export class ProfileComponent implements OnInit {
   }
 
   uploadCover(cover) {
-    this.userService
-      .uploadCover(cover)
-      .subscribe((res: UploadCoverServerAnswer) => {
-        if (!res.error) {
-          this.getUser();
-        }
-      });
+    this.userService.uploadCover(cover).subscribe((res: ServerMsgAnswer) => {
+      if (!res.error) {
+        this.getUser();
+      }
+    });
   }
 }

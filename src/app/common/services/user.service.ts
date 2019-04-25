@@ -6,9 +6,8 @@ import { UserServerAnswer } from "../interfaces/user-server-answer";
 import { GlobalAuthService } from "./global-auth.service";
 import { CurrentUserStoreService } from "./current-user-store.service";
 import { map } from "rxjs/operators";
-import { UploadCoverServerAnswer } from "../interfaces/upload-cover-server-answer";
 import { UserPicturesServerAnswer } from "../interfaces/user-pictures-server-answer";
-import { LikePictureServerAnswer } from "../interfaces/like-picture-server-answer";
+import { ServerMsgAnswer } from "../interfaces/server-msg-answer";
 
 @Injectable({
   providedIn: "root"
@@ -34,11 +33,11 @@ export class UserService {
       );
   }
 
-  uploadCover(file: File): Observable<UploadCoverServerAnswer> {
+  uploadCover(file: File): Observable<ServerMsgAnswer> {
     const formData = new FormData();
     formData.append("coverImg", file);
     const id = this.globalAuth.userId;
-    return this.http.post<UploadCoverServerAnswer>(
+    return this.http.post<ServerMsgAnswer>(
       `${this.apiUrl}/public/users/upload-cover/${id}`,
       formData
     );
@@ -50,25 +49,28 @@ export class UserService {
     );
   }
 
-  likePicture(pictureId: string): Observable<LikePictureServerAnswer> {
-    return this.http.put<LikePictureServerAnswer>(
+  likePicture(pictureId: string): Observable<ServerMsgAnswer> {
+    return this.http.put<ServerMsgAnswer>(
       `${this.apiUrl}/public/users/like-photo/${pictureId}`,
       {}
     );
   }
 
-  deletePicture(imageId: string, imageUrl: string): Observable<any> {
+  deletePicture(
+    imageId: string,
+    imageUrl: string
+  ): Observable<ServerMsgAnswer> {
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": this.globalAuth.token
       }),
       body: {
-        imageId,
+        image_id: imageId,
         image_url: imageUrl
       }
     };
     const id = this.globalAuth.userId;
-    return this.http.delete(
+    return this.http.delete<ServerMsgAnswer>(
       `${this.apiUrl}/public/users/remove-photo/${id}`,
       httpOptions
     );

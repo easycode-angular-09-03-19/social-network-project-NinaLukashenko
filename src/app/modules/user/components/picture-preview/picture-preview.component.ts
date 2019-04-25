@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { UserService } from "../../../../common/services/user.service";
-import { LikePictureServerAnswer } from "../../../../common/interfaces/like-picture-server-answer";
+import { ServerMsgAnswer } from "../../../../common/interfaces/server-msg-answer";
 import { MessageService } from "primeng/api";
 
 @Component({
@@ -12,6 +12,7 @@ export class PicturePreviewComponent implements OnInit {
   @Input() image;
   @Input() isCurrentUser;
   @Output() newLike = new EventEmitter();
+  @Output() deletePicture = new EventEmitter();
   constructor(
     private userService: UserService,
     private messageService: MessageService
@@ -21,8 +22,10 @@ export class PicturePreviewComponent implements OnInit {
 
   onLikeClick(imageId) {
     this.userService.likePicture(imageId).subscribe(
-      (res: LikePictureServerAnswer) => {
-        this.newLike.emit();
+      (res: ServerMsgAnswer) => {
+        if (!res.error) {
+          this.newLike.emit();
+        }
       },
       err => {
         console.log(err);
@@ -39,8 +42,10 @@ export class PicturePreviewComponent implements OnInit {
     const imageId = image._id;
     const imageUrl = image.url.substring(image.url.indexOf("users-photos/"));
     this.userService.deletePicture(imageId, imageUrl).subscribe(
-      res => {
-        console.log(res);
+      (res: ServerMsgAnswer) => {
+        if (!res.error) {
+          this.deletePicture.emit();
+        }
       },
       err => {
         console.log(err);
