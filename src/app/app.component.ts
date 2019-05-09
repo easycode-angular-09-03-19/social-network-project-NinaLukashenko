@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { CurrentUserStoreService } from "./common/services/current-user-store.service";
+import { GlobalAuthService } from "./common/services/global-auth.service";
+import { RouteConfigLoadStart, Router } from "@angular/router";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-root",
@@ -8,9 +12,19 @@ import { CurrentUserStoreService } from "./common/services/current-user-store.se
 })
 export class AppComponent implements OnInit {
   title = "Mostliked Person";
-  constructor(private currentUser: CurrentUserStoreService) {}
+  loadingRouteConfig: Observable<boolean>;
+  constructor(
+    private currentUser: CurrentUserStoreService,
+    private globalAuth: GlobalAuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.currentUser.initCurrentUser();
+    if (this.globalAuth.token) {
+      this.currentUser.initCurrentUser();
+    }
+    this.loadingRouteConfig = this.router.events.pipe(
+      map(event => event instanceof RouteConfigLoadStart)
+    );
   }
 }

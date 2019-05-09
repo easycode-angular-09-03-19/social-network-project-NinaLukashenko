@@ -1,4 +1,4 @@
-<div class="container-fluid profile-tabs-container">
+<!-- <div class="container-fluid profile-tabs-container">
   <div class="row">
     <div class="col-12 profile-follow-button">
       <button
@@ -19,4 +19,15 @@
       </app-profile-selfies>
     </div>
   </div>
-</div>
+</div> -->
+<ng-container [ngSwitch]="activeTab | async">
+  <ng-container *ngSwitchCase="'selfies'">
+    <app-profile-selfies
+      [userId]="userId"
+      [isCurrentUser]="isCurrentUser"
+    ></app-profile-selfies>
+  </ng-container>
+  <ng-container *ngSwitchCase="'favourites'">
+    <app-profile-favourites></app-profile-favourites>
+  </ng-container>
+</ng-container>

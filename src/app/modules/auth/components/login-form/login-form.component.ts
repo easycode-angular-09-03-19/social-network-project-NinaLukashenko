@@ -3,6 +3,7 @@ import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { LoginServerAnswer } from "../../interfaces/login-server-answer";
+import { CurrentUserStoreService } from "app/common/services/current-user-store.service";
 
 @Component({
   selector: "app-login-form",
@@ -17,7 +18,11 @@ export class LoginFormComponent implements OnInit {
       Validators.minLength(8)
     ])
   });
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private currentUser: CurrentUserStoreService
+  ) {}
 
   ngOnInit() {}
 
@@ -26,6 +31,7 @@ export class LoginFormComponent implements OnInit {
       .login({ ...this.loginForm.value })
       .subscribe((res: LoginServerAnswer) => {
         if (!res.error) {
+          this.currentUser.initCurrentUser();
           this.router.navigate(["/"]);
         }
       });

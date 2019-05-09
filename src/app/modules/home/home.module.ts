@@ -9,6 +9,7 @@ import { ChallengeCardComponent } from "../../common/components/challenge-card/c
 import { ChallengeListComponent } from "../../common/components/challenge-list/challenge-list.component";
 import { EmptyListComponent } from "../../common/components/empty-list/empty-list.component";
 import { MatCardModule } from "@angular/material/card";
+import { LoaderModule } from "../loader/loader.module";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { MatCardModule } from "@angular/material/card";
     ChallengeListComponent,
     EmptyListComponent
   ],
-  imports: [CommonModule, HomeRoutingModule, MatCardModule],
+  imports: [CommonModule, HomeRoutingModule, MatCardModule, LoaderModule],
   providers: [HomeService]
 })
 export class HomeModule {}

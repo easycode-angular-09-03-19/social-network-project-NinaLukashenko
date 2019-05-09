@@ -8,6 +8,7 @@ import { CurrentUserStoreService } from "./current-user-store.service";
 import { map } from "rxjs/operators";
 import { UserPicturesServerAnswer } from "../interfaces/user-pictures-server-answer";
 import { ServerMsgAnswer } from "../interfaces/server-msg-answer";
+import { UploadPhotosServerAnswer } from "../interfaces/upload-photos-server-answer";
 
 @Injectable({
   providedIn: "root"
@@ -73,6 +74,16 @@ export class UserService {
     return this.http.delete<ServerMsgAnswer>(
       `${this.apiUrl}/public/users/remove-photo/${id}`,
       httpOptions
+    );
+  }
+
+  uploadPhotos(files: any[]): Observable<UploadPhotosServerAnswer> {
+    const formData = new FormData();
+    files.forEach(file => formData.append("userPhotos", file));
+    const id = this.globalAuth.userId;
+    return this.http.post<UploadPhotosServerAnswer>(
+      `${this.apiUrl}/public/users/upload-photos/${id}`,
+      formData
     );
   }
 }

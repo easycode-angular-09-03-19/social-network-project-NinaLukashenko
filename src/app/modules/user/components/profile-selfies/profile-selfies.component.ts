@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { UserService } from "../../../../common/services/user.service";
 import { MessageService } from "primeng/api";
 import { UserPicturesServerAnswer } from "../../../../common/interfaces/user-pictures-server-answer";
+import { UploadPhotosServerAnswer } from "../../../../common/interfaces/upload-photos-server-answer";
 
 @Component({
   selector: "app-profile-selfies",
@@ -34,6 +35,29 @@ export class ProfileSelfiesComponent implements OnInit {
           severity: "error",
           summary: "Error",
           detail: "Something went wrong. Photos are not available."
+        });
+      }
+    );
+  }
+
+  loadPhotos(input) {
+    const files = Array.from(input.files);
+    console.log(files);
+    this.userService.uploadPhotos(files).subscribe(
+      (data: UploadPhotosServerAnswer) => {
+        this.getPictures();
+        this.messageService.add({
+          severity: "success",
+          summary: "Success",
+          detail: "Photos are added."
+        });
+      },
+      err => {
+        console.log(err);
+        this.messageService.add({
+          severity: "error",
+          summary: "Error",
+          detail: "Something went wrong. Photos are not added."
         });
       }
     );

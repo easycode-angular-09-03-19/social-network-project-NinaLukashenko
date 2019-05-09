@@ -10,6 +10,7 @@ import { zip } from "rxjs";
 export class HomePageComponent implements OnInit {
   homePageData;
   challenges;
+  isLoading = true;
   constructor(private homeService: HomeService) {}
 
   ngOnInit() {
@@ -23,6 +24,9 @@ export class HomePageComponent implements OnInit {
       },
       err => {
         console.log(err);
+      },
+      () => {
+        this.isLoading = false;
       }
     );
   }

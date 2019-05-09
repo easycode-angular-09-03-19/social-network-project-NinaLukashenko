@@ -1,3 +1,7 @@
+<mat-progress-bar
+  *ngIf="loadingRouteConfig | async"
+  mode="indeterminate"
+></mat-progress-bar>
 <app-navbar></app-navbar>
 <p-toast [style]="{ marginTop: '125px' }" position="top-center"></p-toast>
 <router-outlet></router-outlet>

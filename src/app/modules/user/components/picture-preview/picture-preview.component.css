@@ -2,10 +2,16 @@
   margin-bottom: 2.5rem;
   position: relative;
   background-color: #f2f2f2;
+  padding: 0 0 0 2rem;
 }
 
+.selfies-image {
+  margin-bottom: 0;
+}
 .selfies-image img {
-  max-height: 225px;
+  object-fit: cover;
+  width: 100%;
+  height: 270px;
 }
 
 .fa-thumbs-up,
@@ -20,7 +26,7 @@
 
 .selfies-card-buttons {
   position: absolute;
-  top: 35px;
+  top: 15px;
   right: 5px;
   background-color: transparent;
 }
@@ -36,4 +42,8 @@
 
 .fa-trash:hover {
   color: #491ba0;
+}
+
+.control-buttons {
+  padding: 0.25rem 0;
 }

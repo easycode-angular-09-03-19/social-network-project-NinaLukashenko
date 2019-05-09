@@ -11,6 +11,7 @@ import { PicturePreviewComponent } from "./components/picture-preview/picture-pr
 import { ProfileTabsContainerComponent } from "./components/profile-tabs-container/profile-tabs-container.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
+import { ProfileFavouritesComponent } from "./components/profile-favourites/profile-favourites.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatCardModule } from "@angular/material/card";
     ProfileControlsComponent,
     ProfileSelfiesComponent,
     PicturePreviewComponent,
-    ProfileTabsContainerComponent
+    ProfileTabsContainerComponent,
+    ProfileFavouritesComponent
   ],
   imports: [CommonModule, UserRoutingModule, MatButtonModule, MatCardModule]
 })
