@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { ProfileComponent } from "../pages/profile/profile.component";
+import { ProfileComponent } from "../../pages/profile/profile.component";
 import { CurrentUserStoreService } from "app/common/services/current-user-store.service";
 
 @Component({

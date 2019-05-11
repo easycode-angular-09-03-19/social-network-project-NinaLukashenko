@@ -16,7 +16,7 @@ import { ProfileFollowersComponent } from "./components/profile-followers/profil
 import { ProfileFollowingsComponent } from "./components/profile-followings/profile-followings.component";
 import { FavouritePreviewComponent } from "./components/favourite-preview/favourite-preview.component";
 import { FollowingCardComponent } from "./components/following-card/following-card.component";
-import { FollowerCardComponent } from "./follower-card/follower-card.component";
+import { FollowerCardComponent } from "./components/follower-card/follower-card.component";
 
 @NgModule({
   declarations: [
