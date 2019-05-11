@@ -1,0 +1,9 @@
+.add-selfies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-photos {
+  color: grey;
+}

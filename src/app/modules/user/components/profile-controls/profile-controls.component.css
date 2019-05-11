@@ -6,6 +6,7 @@
 .profile-image {
   position: relative;
   max-width: 75px;
+  z-index: 100;
 }
 
 .profile-image img {
@@ -33,4 +34,24 @@
 
 .fas.fa-star.darker {
   color: #c019be;
+}
+
+.tab-controls {
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-controls li {
+  display: inline;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.tab-controls li a {
+  color: #673ab7;
+  font-weight: 500;
 }

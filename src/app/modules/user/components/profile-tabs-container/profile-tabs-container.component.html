@@ -1,25 +1,3 @@
-<!-- <div class="container-fluid profile-tabs-container">
-  <div class="row">
-    <div class="col-12 profile-follow-button">
-      <button
-        *ngIf="!isCurrentUser"
-        mat-raised-button
-        color="primary"
-        class="submit-btn"
-      >
-        Follow
-      </button>
-    </div>
-    <div class="col-12" [ngSwitch]="activeTab">
-      <app-profile-selfies
-        [userId]="userId"
-        [isCurrentUser]="isCurrentUser"
-        *ngSwitchCase="'selfies'"
-      >
-      </app-profile-selfies>
-    </div>
-  </div>
-</div> -->
 <ng-container [ngSwitch]="activeTab | async">
   <ng-container *ngSwitchCase="'selfies'">
     <app-profile-selfies
@@ -28,6 +6,12 @@
     ></app-profile-selfies>
   </ng-container>
   <ng-container *ngSwitchCase="'favourites'">
-    <app-profile-favourites></app-profile-favourites>
+    <app-profile-favourites [userId]="userId"></app-profile-favourites>
+  </ng-container>
+  <ng-container *ngSwitchCase="'followers'">
+    <app-profile-followers [userId]="userId"></app-profile-followers>
+  </ng-container>
+  <ng-container *ngSwitchCase="'followings'">
+    <app-profile-followings [userId]="userId"></app-profile-followings>
   </ng-container>
 </ng-container>

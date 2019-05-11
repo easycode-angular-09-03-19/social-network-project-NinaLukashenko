@@ -12,6 +12,11 @@ import { ProfileTabsContainerComponent } from "./components/profile-tabs-contain
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { ProfileFavouritesComponent } from "./components/profile-favourites/profile-favourites.component";
+import { ProfileFollowersComponent } from "./components/profile-followers/profile-followers.component";
+import { ProfileFollowingsComponent } from "./components/profile-followings/profile-followings.component";
+import { FavouritePreviewComponent } from "./components/favourite-preview/favourite-preview.component";
+import { FollowingCardComponent } from "./components/following-card/following-card.component";
+import { FollowerCardComponent } from "./follower-card/follower-card.component";
 
 @NgModule({
   declarations: [
@@ -22,8 +27,14 @@ import { ProfileFavouritesComponent } from "./components/profile-favourites/prof
     ProfileSelfiesComponent,
     PicturePreviewComponent,
     ProfileTabsContainerComponent,
-    ProfileFavouritesComponent
+    ProfileFavouritesComponent,
+    ProfileFollowersComponent,
+    ProfileFollowingsComponent,
+    FavouritePreviewComponent,
+    FollowingCardComponent,
+    FollowerCardComponent
   ],
-  imports: [CommonModule, UserRoutingModule, MatButtonModule, MatCardModule]
+  imports: [CommonModule, UserRoutingModule, MatButtonModule, MatCardModule],
+  exports: [ProfileComponent]
 })
 export class UserModule {}

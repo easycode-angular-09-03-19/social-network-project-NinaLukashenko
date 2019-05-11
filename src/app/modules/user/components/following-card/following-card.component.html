@@ -1,0 +1,34 @@
+<mat-card class="following-card">
+  <mat-card-header
+    [ngStyle]="{ 'background-image': 'url(' + following?.cover + ')' }"
+    [ngClass]="'following-card-top'"
+  >
+  </mat-card-header>
+  <img
+    mat-card-image
+    [src]="following?.avatar"
+    [ngClass]="'following-avatar'"
+  />
+  <mat-card-content [ngClass]="'following-card-content'">
+    <p style="font-size: 1.4rem">{{ following?.full_name }}</p>
+    <p style="color: grey">{{ following?.city }}</p>
+    <mat-card-actions>
+      <button
+        *ngIf="following?.following"
+        mat-stroked-button
+        color="warning"
+        (click)="onClickFollowing(following)"
+      >
+        FOLLOWING
+      </button>
+      <button
+        *ngIf="!following?.following"
+        mat-stroked-button
+        color="primary"
+        (click)="onClickFollowing(following)"
+      >
+        FOLLOW
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,40 @@
+<mat-card class="follower-card">
+  <mat-card-header
+    [ngStyle]="{ 'background-image': 'url(' + follower?.cover + ')' }"
+    [ngClass]="'follower-card-top'"
+  >
+  </mat-card-header>
+  <a
+    href=""
+    [routerLink]="['/users', follower?._id]"
+    (click)="onClickUserProfile(follower?._id)"
+  >
+    <img
+      mat-card-image
+      [src]="follower?.avatar"
+      [ngClass]="'follower-avatar'"
+    />
+  </a>
+  <mat-card-content [ngClass]="'follower-card-content'">
+    <p style="font-size: 1.4rem">{{ follower?.full_name }}</p>
+    <p style="color: grey">{{ follower?.city }}</p>
+    <mat-card-actions>
+      <button
+        *ngIf="follower?.following"
+        mat-stroked-button
+        color="warning"
+        (click)="onClickFollow(follower)"
+      >
+        FOLLOWING
+      </button>
+      <button
+        *ngIf="!follower?.following"
+        mat-stroked-button
+        color="primary"
+        (click)="onClickFollow(follower)"
+      >
+        FOLLOW
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Observable } from "rxjs";
 import { ActivatedRoute, Router } from "@angular/router";
 import { map } from "rxjs/operators";
+import { async } from "q";
 
 @Component({
   selector: "app-profile-controls",
@@ -14,11 +15,23 @@ export class ProfileControlsComponent implements OnInit {
   tabList = [
     {
       tab: "selfies",
-      text: "SELFIES"
+      text: "SELFIES",
+      prop: "my_images"
     },
     {
       tab: "favourites",
-      text: "FAVOURITES"
+      text: "FAVOURITES",
+      prop: "favourites"
+    },
+    {
+      tab: "followers",
+      text: "FOLLOWERS",
+      prop: "followers"
+    },
+    {
+      tab: "followings",
+      text: "FOLLOWINGS",
+      prop: "followings"
     }
   ];
   constructor(private route: ActivatedRoute, private router: Router) {}

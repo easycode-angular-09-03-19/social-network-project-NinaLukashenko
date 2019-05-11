@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { environment } from "@env/environment";
 import { Observable } from "rxjs";
 import { UserServerAnswer } from "../interfaces/user-server-answer";
@@ -9,6 +9,8 @@ import { map } from "rxjs/operators";
 import { UserPicturesServerAnswer } from "../interfaces/user-pictures-server-answer";
 import { ServerMsgAnswer } from "../interfaces/server-msg-answer";
 import { UploadPhotosServerAnswer } from "../interfaces/upload-photos-server-answer";
+import { FavouritesServerAnswer } from "../interfaces/favourites-server-answer";
+import { FollowersFollowingsServerAnswer } from "../interfaces/followers-followings-server-answer";
 
 @Injectable({
   providedIn: "root"
@@ -84,6 +86,55 @@ export class UserService {
     return this.http.post<UploadPhotosServerAnswer>(
       `${this.apiUrl}/public/users/upload-photos/${id}`,
       formData
+    );
+  }
+
+  getFavourites(id: string): Observable<FavouritesServerAnswer> {
+    let params = new HttpParams();
+    params = params.append("part", "1").append("limit", "20");
+    const httpOptions = {
+      params
+    };
+    return this.http.get<FavouritesServerAnswer>(
+      `${this.apiUrl}/public/users/my-favorites/${id}`,
+      httpOptions
+    );
+  }
+
+  getFollowings(id: string): Observable<FollowersFollowingsServerAnswer> {
+    let params = new HttpParams();
+    params = params
+      .append("part", "1")
+      .append("limit", "18")
+      .append("path", "followers");
+    const httpOptions = {
+      params
+    };
+    return this.http.get<FollowersFollowingsServerAnswer>(
+      `${this.apiUrl}/public/users/my-followers-followings/${id}`,
+      httpOptions
+    );
+  }
+
+  getFollowers(id: string): Observable<FollowersFollowingsServerAnswer> {
+    let params = new HttpParams();
+    params = params
+      .append("part", "1")
+      .append("limit", "18")
+      .append("path", "followings");
+    const httpOptions = {
+      params
+    };
+    return this.http.get<FollowersFollowingsServerAnswer>(
+      `${this.apiUrl}/public/users/my-followers-followings/${id}`,
+      httpOptions
+    );
+  }
+
+  subscription(id: string): Observable<ServerMsgAnswer> {
+    return this.http.put<ServerMsgAnswer>(
+      `${this.apiUrl}/public/users/following/${id}`,
+      {}
     );
   }
 }

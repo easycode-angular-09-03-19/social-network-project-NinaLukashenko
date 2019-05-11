@@ -7,7 +7,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
 import { NotificationService } from "./services/notification.service";
 import { NotificationsComponent } from "./components/notifications/notifications.component";
-
+import { ProfileComponent } from "../user/pages/profile/profile.component";
 @NgModule({
   declarations: [NavbarComponent, NotificationsComponent],
   imports: [
@@ -17,7 +17,7 @@ import { NotificationsComponent } from "./components/notifications/notifications
     RouterModule,
     MatMenuModule
   ],
-  providers: [NotificationService],
+  providers: [NotificationService, ProfileComponent],
   exports: [NavbarComponent]
 })
 export class NavbarModule {}

@@ -28,8 +28,12 @@
               href=""
               [routerLink]="['/users', user._id]"
               [queryParams]="{ tab: item.tab }"
-              [ngClass]="{ active: (activeTab | async) === item.tab }"
+              [ngClass]="{
+                active: (activeTab | async) === item.tab,
+                'tab-link': true
+              }"
             >
+              <span>{{ user[item.prop]?.length }}</span>
               {{ item.text }}
             </a>
           </li>

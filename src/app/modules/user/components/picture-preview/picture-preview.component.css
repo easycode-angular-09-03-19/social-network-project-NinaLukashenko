@@ -26,8 +26,8 @@
 
 .selfies-card-buttons {
   position: absolute;
-  top: 15px;
-  right: 5px;
+  top: 25px;
+  right: 15px;
   background-color: transparent;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .fa-heart:hover {
-  color: #ef7ca6;
+  color: #ef39c2;
 }
 
 .fa-trash:hover {
