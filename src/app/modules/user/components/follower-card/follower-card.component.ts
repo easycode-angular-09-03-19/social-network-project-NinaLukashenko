@@ -12,18 +12,13 @@ export class FollowerCardComponent implements OnInit {
   @Output() clickFollow = new EventEmitter();
 
   constructor(
-    private profileComponent: ProfileComponent,
-    private currentUser: CurrentUserStoreService
+    private currentUser: CurrentUserStoreService,
+    private profileComponent: ProfileComponent
   ) {}
 
   ngOnInit() {}
 
   onClickFollow(follower) {
     this.clickFollow.emit(follower);
-  }
-
-  onClickUserProfile(id: string) {
-    this.profileComponent.id = id;
-    this.profileComponent.getUser();
   }
 }

@@ -34,7 +34,6 @@ import { FollowerCardComponent } from "./components/follower-card/follower-card.
     FollowingCardComponent,
     FollowerCardComponent
   ],
-  imports: [CommonModule, UserRoutingModule, MatButtonModule, MatCardModule],
-  exports: [ProfileComponent]
+  imports: [CommonModule, UserRoutingModule, MatButtonModule, MatCardModule]
 })
 export class UserModule {}

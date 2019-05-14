@@ -4,7 +4,6 @@ import { UserService } from "../../../../common/services/user.service";
 import { ActivatedRoute } from "@angular/router";
 import { UserServerAnswer } from "../../../../common/interfaces/user-server-answer";
 import { ServerMsgAnswer } from "../../../../common/interfaces/server-msg-answer";
-import { CurrentUserStoreService } from "app/common/services/current-user-store.service";
 
 @Component({
   selector: "app-profile",
@@ -20,19 +19,15 @@ export class ProfileComponent implements OnInit {
   constructor(
     private globalAuth: GlobalAuthService,
     private userService: UserService,
-    private route: ActivatedRoute,
-    private currentUser: CurrentUserStoreService
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.id = this.route.snapshot.params.id;
     this.authUserId = this.globalAuth.userId;
-    this.currentUser.userWatcher.subscribe(user => {
-      if (user._id) {
-        this.id = user._id;
-      }
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get("id");
+      this.getUser();
     });
-    this.getUser();
   }
 
   getUser() {

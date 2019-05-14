@@ -4,11 +4,7 @@
     [ngClass]="'follower-card-top'"
   >
   </mat-card-header>
-  <a
-    href=""
-    [routerLink]="['/users', follower?._id]"
-    (click)="onClickUserProfile(follower?._id)"
-  >
+  <a href="" [routerLink]="['/users', follower?._id]">
     <img
       mat-card-image
       [src]="follower?.avatar"

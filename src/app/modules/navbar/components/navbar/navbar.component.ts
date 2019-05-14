@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, ActivationEnd, Router } from "@angular/router";
 import { filter } from "rxjs/operators";
 import { CurrentUserStoreService } from "app/common/services/current-user-store.service";
-import { ProfileComponent } from "../../../user/pages/profile/profile.component";
 
 @Component({
   selector: "app-navbar",
@@ -17,8 +16,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private currentUser: CurrentUserStoreService,
-    private profileComponent: ProfileComponent
+    private currentUser: CurrentUserStoreService
   ) {}
 
   ngOnInit() {
@@ -35,10 +33,5 @@ export class NavbarComponent implements OnInit {
         this.userId = _id;
       }
     });
-  }
-
-  onClickMyProfile() {
-    this.profileComponent.id = this.userId;
-    this.profileComponent.getUser();
   }
 }

@@ -4,11 +4,13 @@
     [ngClass]="'following-card-top'"
   >
   </mat-card-header>
-  <img
-    mat-card-image
-    [src]="following?.avatar"
-    [ngClass]="'following-avatar'"
-  />
+  <a href="" [routerLink]="['/users', following?._id]">
+    <img
+      mat-card-image
+      [src]="following?.avatar"
+      [ngClass]="'following-avatar'"
+    />
+  </a>
   <mat-card-content [ngClass]="'following-card-content'">
     <p style="font-size: 1.4rem">{{ following?.full_name }}</p>
     <p style="color: grey">{{ following?.city }}</p>
