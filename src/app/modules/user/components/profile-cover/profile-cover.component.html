@@ -1,4 +1,4 @@
-<div class="profile-cover" [style.backgroundImage]="'url(' + cover + ')'">
+<div [appDivLoader]="cover" class="profile-cover">
   <input
     type="file"
     *ngIf="isCurrentUser"

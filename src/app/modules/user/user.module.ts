@@ -17,6 +17,7 @@ import { ProfileFollowingsComponent } from "./components/profile-followings/prof
 import { FavouritePreviewComponent } from "./components/favourite-preview/favourite-preview.component";
 import { FollowingCardComponent } from "./components/following-card/following-card.component";
 import { FollowerCardComponent } from "./components/follower-card/follower-card.component";
+import { DirectivesModuleModule } from "../../common/modules/directives-module/directives-module.module";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,12 @@ import { FollowerCardComponent } from "./components/follower-card/follower-card.
     FollowingCardComponent,
     FollowerCardComponent
   ],
-  imports: [CommonModule, UserRoutingModule, MatButtonModule, MatCardModule]
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    MatButtonModule,
+    MatCardModule,
+    DirectivesModuleModule
+  ]
 })
 export class UserModule {}
