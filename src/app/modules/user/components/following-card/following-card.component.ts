@@ -10,9 +10,7 @@ export class FollowingCardComponent implements OnInit {
   @Output() clickFollowing = new EventEmitter();
   constructor() {}
 
-  ngOnInit() {
-    this.following.following = true;
-  }
+  ngOnInit() {}
 
   onClickFollowing(following) {
     this.clickFollowing.emit(following);

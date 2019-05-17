@@ -14,11 +14,12 @@
       [ngClass]="'selfies-card-buttons'"
       (click)="onLikeClick(image._id)"
     >
-      <i class="fas fa-heart"></i>
+      <i class="fas fa-heart" [ngClass]="{ liked: image?.isLiked === true }">
+      </i>
     </button>
   </mat-card-actions>
   <mat-card-content [ngClass]="'selfies-image'">
-    <img mat-card-image [src]="image?.url" />
+    <img mat-card-image [appImgLoader]="image?.url" />
   </mat-card-content>
   <div class="control-buttons">
     <span><i class="far fa-thumbs-up"></i> {{ image?.likes.length }}</span>

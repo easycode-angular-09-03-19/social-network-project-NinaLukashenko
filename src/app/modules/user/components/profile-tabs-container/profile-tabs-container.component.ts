@@ -9,7 +9,6 @@ import { Observable } from "rxjs";
   styleUrls: ["./profile-tabs-container.component.css"]
 })
 export class ProfileTabsContainerComponent implements OnInit {
-  // @Input() activeTab;
   @Input() userId;
   @Input() isCurrentUser;
   activeTab: Observable<string>;
