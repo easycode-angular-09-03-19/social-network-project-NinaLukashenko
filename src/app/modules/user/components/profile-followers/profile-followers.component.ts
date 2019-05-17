@@ -4,6 +4,7 @@ import { MessageService } from "primeng/api";
 import { FollowersFollowingsServerAnswer } from "../../../../common/interfaces/followers-followings-server-answer";
 import { Following } from "../../../../common/interfaces/following";
 import { ServerMsgAnswer } from "../../../../common/interfaces/server-msg-answer";
+import { GlobalAuthService } from "../../../../common/services/global-auth.service";
 
 @Component({
   selector: "app-profile-followers",
@@ -13,19 +14,22 @@ import { ServerMsgAnswer } from "../../../../common/interfaces/server-msg-answer
 export class ProfileFollowersComponent implements OnInit {
   @Input() userId;
   private followers;
-  private followings;
+  private authUserfollowings;
+  private authUserId;
   constructor(
     private userService: UserService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private globalAuth: GlobalAuthService
   ) {}
 
   ngOnInit() {
+    this.authUserId = this.globalAuth.userId;
     this.userService.getFollowers(this.userId).subscribe(
       (data: FollowersFollowingsServerAnswer) => {
         this.followers = data.users;
-        this.userService.getFollowings(this.userId).subscribe(
+        this.userService.getFollowings(this.authUserId).subscribe(
           data => {
-            this.followings = data.users;
+            this.authUserfollowings = data.users;
             this.checkFollowers();
           },
           err => {
@@ -51,8 +55,8 @@ export class ProfileFollowersComponent implements OnInit {
 
   checkFollowers() {
     for (let i = 0; i < this.followers.length; i++) {
-      for (let y = 0; y < this.followings.length; y++) {
-        if (this.followers[i]._id === this.followings[y]._id) {
+      for (let y = 0; y < this.authUserfollowings.length; y++) {
+        if (this.followers[i]._id === this.authUserfollowings[y]._id) {
           this.followers[i].following = true;
         }
       }
