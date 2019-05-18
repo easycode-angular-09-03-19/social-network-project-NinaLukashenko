@@ -11,7 +11,6 @@ import { MessageService } from "primeng/api";
 export class PicturePreviewComponent implements OnInit {
   @Input() image;
   @Input() isCurrentUser;
-  @Output() newLike = new EventEmitter();
   @Output() deletePicture = new EventEmitter();
   constructor(
     private userService: UserService,
@@ -20,11 +19,11 @@ export class PicturePreviewComponent implements OnInit {
 
   ngOnInit() {}
 
-  onLikeClick(imageId) {
-    this.userService.likePicture(imageId).subscribe(
+  onLikeClick(image) {
+    this.userService.likePicture(image._id).subscribe(
       (res: ServerMsgAnswer) => {
         if (!res.error) {
-          this.newLike.emit();
+          image.isLiked = !image.isLiked;
         }
       },
       err => {
