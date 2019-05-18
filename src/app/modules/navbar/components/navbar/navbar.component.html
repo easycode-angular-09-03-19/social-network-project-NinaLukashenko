@@ -1,14 +1,10 @@
 <mat-toolbar *ngIf="!isHidden">
   <ul class="main-menu">
-    <li><a href="/" routerLink="/">Home</a></li>
-    <li>Challenges</li>
-    <li>Winners</li>
+    <li><a href="/" [routerLink]="['/']">Home</a></li>
+    <li a href="/" [routerLink]="['/winners']">Winners</li>
+    <li a href="/" [routerLink]="['/news']">News Feed</li>
     <li>
-      <a
-        href="#"
-        *ngIf="userId"
-        [routerLink]="['/users/', userId]"
-        (click)="onClickMyProfile()"
+      <a href="#" *ngIf="userId" [routerLink]="['/users/', userId]"
         >My profile</a
       >
     </li>

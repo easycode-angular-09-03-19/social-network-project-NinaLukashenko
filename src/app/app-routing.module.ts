@@ -13,6 +13,14 @@ const routes: Routes = [
     loadChildren: "./modules/user/user.module#UserModule"
   },
   {
+    path: "news",
+    loadChildren: "./modules/news/news.module#NewsModule"
+  },
+  {
+    path: "winners",
+    loadChildren: "./modules/winners/winners.module#WinnersModule"
+  },
+  {
     path: "",
     loadChildren: "./modules/home/home.module#HomeModule",
     canActivate: [GlobalAuthGuard]
