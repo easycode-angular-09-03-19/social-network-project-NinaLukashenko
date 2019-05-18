@@ -5,7 +5,7 @@ export interface WinnersServerAnswer {
     member_id: {
       challenge_id: string;
       exposure_value: number;
-      images: [];
+      images: any;
       level: { curent_level: number; votes_to_next_level: number };
       points: number;
       submited_time: string;

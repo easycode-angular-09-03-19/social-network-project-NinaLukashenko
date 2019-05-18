@@ -1,3 +1,7 @@
-<p>
-  winners works!
-</p>
+<div class="row">
+  <ng-container *ngFor="let item of winners">
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <app-winner-preview [winner]="item"> </app-winner-preview>
+    </div>
+  </ng-container>
+</div>
