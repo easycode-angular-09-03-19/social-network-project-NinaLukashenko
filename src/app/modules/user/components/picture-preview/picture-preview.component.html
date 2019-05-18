@@ -12,7 +12,7 @@
       mat-flat-button
       *ngIf="!isCurrentUser"
       [ngClass]="'selfies-card-buttons'"
-      (click)="onLikeClick(image._id)"
+      (click)="onLikeClick(image)"
     >
       <i class="fas fa-heart" [ngClass]="{ liked: image?.isLiked === true }">
       </i>

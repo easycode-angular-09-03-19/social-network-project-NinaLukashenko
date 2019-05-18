@@ -91,7 +91,7 @@ export class UserService {
 
   getFavourites(id: string): Observable<FavouritesServerAnswer> {
     let params = new HttpParams();
-    params = params.append("part", "1").append("limit", "20");
+    params = params.append("part", "1").append("limit", "100");
     const httpOptions = {
       params
     };
@@ -105,7 +105,7 @@ export class UserService {
     let params = new HttpParams();
     params = params
       .append("part", "1")
-      .append("limit", "18")
+      .append("limit", "100")
       .append("path", "followers");
     const httpOptions = {
       params
@@ -120,7 +120,7 @@ export class UserService {
     let params = new HttpParams();
     params = params
       .append("part", "1")
-      .append("limit", "18")
+      .append("limit", "100")
       .append("path", "followings");
     const httpOptions = {
       params
