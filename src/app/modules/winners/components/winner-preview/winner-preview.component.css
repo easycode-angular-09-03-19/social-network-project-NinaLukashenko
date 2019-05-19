@@ -1,0 +1,9 @@
+.winner-image {
+  object-fit: cover;
+  width: 100%;
+  height: 270px;
+}
+
+.winner-card img {
+  margin: 0;
+}

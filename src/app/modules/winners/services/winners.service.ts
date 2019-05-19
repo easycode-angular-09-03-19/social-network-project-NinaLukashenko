@@ -11,7 +11,7 @@ export class WinnersService {
 
   getWinners(): Observable<WinnersServerAnswer> {
     let params = new HttpParams();
-    params = params.append("part", "1").append("limit", "15");
+    params = params.append("part", "1").append("limit", "100");
     const httpOptions = { params };
 
     return this.http.get<WinnersServerAnswer>(

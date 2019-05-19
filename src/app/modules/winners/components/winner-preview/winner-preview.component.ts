@@ -10,6 +10,6 @@ export class WinnerPreviewComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.winner.member_id.images.image_basic);
+    console.log(this.winner);
   }
 }

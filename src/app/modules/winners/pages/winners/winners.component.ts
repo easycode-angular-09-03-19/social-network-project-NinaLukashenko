@@ -9,7 +9,7 @@ import { WinnersServerAnswer } from "../../interfaces/winners-server-answer";
   styleUrls: ["./winners.component.css"]
 })
 export class WinnersComponent implements OnInit {
-  winners;
+  winners = [];
   constructor(
     private winnersService: WinnersService,
     private messageService: MessageService
@@ -18,9 +18,11 @@ export class WinnersComponent implements OnInit {
   ngOnInit() {
     this.winnersService.getWinners().subscribe(
       (data: WinnersServerAnswer) => {
-        this.winners = data.winners;
-        console.log(data.winners);
-        console.log(this.winners);
+        for (let i = 0; i < data.winners.length; i++) {
+          if (data.winners[i].member_id.images[0]) {
+            this.winners.push(data.winners[i]);
+          }
+        }
       },
       err => {
         console.log(err);

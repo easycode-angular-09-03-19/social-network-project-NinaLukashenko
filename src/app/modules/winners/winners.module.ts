@@ -3,11 +3,12 @@ import { CommonModule } from "@angular/common";
 import { WinnersComponent } from "./pages/winners/winners.component";
 import { WinnersRoutingModule } from "./winners-routing.module";
 import { WinnersService } from "./services/winners.service";
-import { WinnerPreviewComponent } from './components/winner-preview/winner-preview.component';
+import { WinnerPreviewComponent } from "./components/winner-preview/winner-preview.component";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [WinnersComponent, WinnerPreviewComponent],
-  imports: [CommonModule, WinnersRoutingModule],
+  imports: [CommonModule, WinnersRoutingModule, MatCardModule],
   providers: [WinnersService]
 })
 export class WinnersModule {}
