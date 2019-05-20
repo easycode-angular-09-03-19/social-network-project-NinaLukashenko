@@ -1,23 +1,29 @@
 <mat-card class="winner-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img
-    mat-card-image
-    [src]="(winner?.member_id.images)[0].image_basic.url"
-    [ngClass]="'winner-image'"
-  />
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz
-      breeds of dog from Japan. A small, agile dog that copes very well with
-      mountainous terrain, the Shiba Inu was originally bred for hunting.
-    </p>
-  </mat-card-content>
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+    <button
+      mat-flat-button
+      [ngClass]="'winner-like-button'"
+      (click)="onLikeClick(winner)"
+    >
+      <i class="fas fa-heart" [ngClass]="{ liked: winner?.isLiked === true }">
+      </i>
+    </button>
   </mat-card-actions>
+  <mat-card-content [ngClass]="'winner-image'">
+    <img
+      mat-card-image
+      [src]="(winner?.member_id.images)[0].image_basic.url"
+      [ngClass]="'winner-image'"
+    />
+  </mat-card-content>
+  <div class="controls">
+    <span
+      ><i class="far fa-thumbs-up"></i>
+      {{ (winner?.member_id.images)[0].image_basic.likes.length }}</span
+    >
+    <span
+      ><i class="far fa-eye"></i>
+      {{ (winner?.member_id.images)[0].image_basic.views.length }}</span
+    >
+  </div>
 </mat-card>

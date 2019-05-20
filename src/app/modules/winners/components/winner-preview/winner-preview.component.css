@@ -1,9 +1,49 @@
+.winner-card {
+  margin-bottom: 2.5rem;
+  position: relative;
+  background-color: #f2f2f2;
+  padding: 0 0 0 2rem;
+}
+
 .winner-image {
+  margin-bottom: 0;
+}
+
+.winner-card img {
   object-fit: cover;
   width: 100%;
   height: 270px;
 }
 
-.winner-card img {
-  margin: 0;
+.winner-like-button {
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  background-color: transparent;
+}
+
+.fa-heart {
+  color: pink;
+  font-size: 1.5rem;
+}
+
+.fa-heart:hover {
+  color: #ef39c2;
+}
+
+.fa-thumbs-up,
+.fa-eye {
+  color: #673ab7;
+}
+
+.fa-eye {
+  margin-left: 1.5rem;
+}
+
+.controls {
+  padding: 0.25rem 0;
+}
+
+.liked {
+  color: #ef39c2;
 }

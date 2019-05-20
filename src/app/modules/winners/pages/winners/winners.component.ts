@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { WinnersService } from "../../services/winners.service";
 import { MessageService } from "primeng/api";
 import { WinnersServerAnswer } from "../../interfaces/winners-server-answer";
+import { GlobalAuthService } from "../../../../common/services/global-auth.service";
+import { UserService } from "../../../../common/services/user.service";
 
 @Component({
   selector: "app-winners",
@@ -9,10 +11,14 @@ import { WinnersServerAnswer } from "../../interfaces/winners-server-answer";
   styleUrls: ["./winners.component.css"]
 })
 export class WinnersComponent implements OnInit {
-  winners = [];
+  private winners = [];
+  private authUserId;
+  private authUserfavourites;
   constructor(
     private winnersService: WinnersService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private globalAuth: GlobalAuthService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -23,6 +29,11 @@ export class WinnersComponent implements OnInit {
             this.winners.push(data.winners[i]);
           }
         }
+        this.authUserId = this.globalAuth.userId;
+        this.userService.getFavourites(this.authUserId).subscribe(data => {
+          this.authUserfavourites = data.images;
+          this.checkAuthUserFavourites();
+        });
       },
       err => {
         console.log(err);
@@ -33,5 +44,19 @@ export class WinnersComponent implements OnInit {
         });
       }
     );
+  }
+
+  checkAuthUserFavourites() {
+    for (let i = 0; i < this.winners.length; i++) {
+      for (let y = 0; y < this.authUserfavourites.length; y++) {
+        if (
+          this.winners[i].member_id.images[0].image_basic._id ===
+          this.authUserfavourites[y]._id
+        ) {
+          this.winners[i].isLiked = true;
+          console.log("is liked");
+        }
+      }
+    }
   }
 }
