@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { GlobalAuthService } from "../../../../common/services/global-auth.service";
 import { UserService } from "../../../../common/services/user.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { UserServerAnswer } from "../../../../common/interfaces/user-server-answer";
 import { ServerMsgAnswer } from "../../../../common/interfaces/server-msg-answer";
 
@@ -19,13 +19,15 @@ export class ProfileComponent implements OnInit {
   constructor(
     private globalAuth: GlobalAuthService,
     private userService: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.authUserId = this.globalAuth.userId;
     this.route.paramMap.subscribe(params => {
       this.id = params.get("id");
+      console.log(this.id);
       this.getUser();
     });
   }

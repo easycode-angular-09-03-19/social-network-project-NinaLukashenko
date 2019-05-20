@@ -24,28 +24,47 @@ export class ProfileSelfiesComponent implements OnInit {
 
   ngOnInit() {
     this.authUserId = this.globalAuth.userId;
+    console.log(this.userId);
     this.getPictures();
   }
+
+  // getPictures() {
+  //   this.userService.getUserPictures(this.userId).subscribe(
+  //     (data: UserPicturesServerAnswer) => {
+  //       if (data.images) {
+  //         this.images = data.images;
+  //         this.userService.getFavourites(this.authUserId).subscribe(
+  //           data => {
+  //             this.authUserfavourites = data.images;
+  //             this.checkAuthUserFavourites();
+  //           },
+  //           err => {
+  //             console.log(err);
+  //             this.messageService.add({
+  //               severity: "error",
+  //               summary: "Error",
+  //               detail: "Something went wrong."
+  //             });
+  //           }
+  //         );
+  //       }
+  //     },
+  //     err => {
+  //       console.log(err);
+  //       this.messageService.add({
+  //         severity: "error",
+  //         summary: "Error",
+  //         detail: "Something went wrong. Photos are not available."
+  //       });
+  //     }
+  //   );
+  // }
 
   getPictures() {
     this.userService.getUserPictures(this.userId).subscribe(
       (data: UserPicturesServerAnswer) => {
         if (data.images) {
           this.images = data.images;
-          this.userService.getFavourites(this.authUserId).subscribe(
-            data => {
-              this.authUserfavourites = data.images;
-              this.checkAuthUserFavourites();
-            },
-            err => {
-              console.log(err);
-              this.messageService.add({
-                severity: "error",
-                summary: "Error",
-                detail: "Something went wrong."
-              });
-            }
-          );
         }
       },
       err => {

@@ -15,6 +15,7 @@ export class ProfileTabsContainerComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+    console.log(this.userId);
     this.activeTab = this.route.queryParams.pipe(map(params => params.tab));
   }
 }
