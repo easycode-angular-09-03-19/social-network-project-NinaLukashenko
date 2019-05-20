@@ -24,6 +24,11 @@ export class WinnerPreviewComponent implements OnInit {
         (res: ServerMsgAnswer) => {
           if (!res.error) {
             winner.isLiked = !winner.isLiked;
+            if (res.message === "Image was liked.") {
+              winner.member_id.images[0].image_basic.likes.length++;
+            } else {
+              winner.member_id.images[0].image_basic.likes.length--;
+            }
           }
         },
         err => {

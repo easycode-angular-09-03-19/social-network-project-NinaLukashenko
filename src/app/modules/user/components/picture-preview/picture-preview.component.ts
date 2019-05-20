@@ -24,6 +24,11 @@ export class PicturePreviewComponent implements OnInit {
       (res: ServerMsgAnswer) => {
         if (!res.error) {
           image.isLiked = !image.isLiked;
+          if (res.message === "Image was liked.") {
+            image.likes.length++;
+          } else {
+            image.likes.length--;
+          }
         }
       },
       err => {
