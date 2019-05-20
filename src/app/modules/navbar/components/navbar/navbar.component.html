@@ -3,11 +3,9 @@
     <li><a href="/" [routerLink]="['/']">Home</a></li>
     <li><a href="/" [routerLink]="['/winners']">Winners</a></li>
     <li><a href="/" [routerLink]="['/news']">News Feed</a></li>
-    <li>
-      <a href="#" *ngIf="userId" [routerLink]="['/users/', userId]"
-        >My profile</a
-      >
-    </li>
   </ul>
-  <app-notifications></app-notifications>
+  <div class="user mr-3">
+    <app-notifications></app-notifications>
+    <a href="#" *ngIf="userId" [routerLink]="['/users/', userId]">My profile</a>
+  </div>
 </mat-toolbar>

@@ -1,3 +1,8 @@
+:host {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
 span.person {
   color: #ce0caa;
 }

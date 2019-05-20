@@ -6,6 +6,7 @@ import { NewsService } from "./services/news.service";
 import { ScrollDispatchModule } from "@angular/cdk/scrolling";
 import { DirectivesModuleModule } from "../../common/modules/directives-module/directives-module.module";
 import { MatCardModule } from "@angular/material/card";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [NewsFeedComponent],
@@ -14,7 +15,8 @@ import { MatCardModule } from "@angular/material/card";
     NewsRoutingModule,
     ScrollDispatchModule,
     DirectivesModuleModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [NewsService]
 })

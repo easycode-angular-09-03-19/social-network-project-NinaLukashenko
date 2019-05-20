@@ -1,48 +1,106 @@
-.news-container {
-  width: 100%;
-  height: 750px;
-  border: 1px solid;
-}
-
-.news-card {
-  width: 75%;
-  display: inline-block;
-  margin-top: 2.5rem;
-}
-
-.news-card-content {
+.news-block {
+  padding: 1.5rem 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  border: 1.5px solid #7a0e7b;
+  width: 85%;
+  margin: 1.5rem auto 0;
+  border-radius: 1.25rem 0 1.25rem 0;
+  background-color: #f6f4f9;
 }
 
-mat-card-header {
-  display: inline-block;
+.news-info {
+  padding: 1.5rem;
+  background-color: white;
   text-align: center;
-  margin-right: 1.5rem;
-  width: 160px;
-}
-
-mat-card-content {
-  max-lines: 5rem;
-}
-
-.news-col {
-  text-align: center;
-}
-
-.news-pictures-block img {
-  width: 100%;
-  height: 325px;
-  object-fit: cover;
+  vertical-align: middle;
+  border-radius: 1.25rem 0 0 0;
 }
 
 .news-owner-avatar {
+  display: inline-block;
   height: 100px;
   width: 100px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 50%;
+}
+
+.news-container {
+  width: 100%;
+  height: 750px;
+  /* border: 1px solid grey; */
+}
+
+mat-card-actions {
+  padding-top: 0;
+}
+.news-card {
+  display: inline-block;
+  position: relative;
+  background-color: #f2f2f2;
+  max-width: 750px;
+  padding: 0.5rem;
+  border-radius: 0 0 1.25rem 0;
+}
+
+mat-card-actions {
+  padding: 0;
+  margin: 0;
+}
+
+.news-image {
+  margin-bottom: 0;
+}
+
+.news-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 275px;
+  margin: auto;
+}
+
+.fa-thumbs-up,
+.fa-eye,
+.fa-trash {
+  color: #673ab7;
+}
+
+.fa-eye {
+  margin-left: 1.5rem;
+}
+
+.news-card-buttons {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  background-color: transparent;
+}
+
+.grey {
+  color: grey;
+}
+
+.fa-heart {
+  color: pink;
+  font-size: 1.5rem;
+}
+
+.fa-heart:hover {
+  color: #ef39c2;
+}
+
+.fa-trash:hover {
+  color: #491ba0;
+}
+
+.control-buttons {
+  padding: 0 0;
+  text-align: left;
+}
+
+.liked {
+  color: #ef39c2;
 }

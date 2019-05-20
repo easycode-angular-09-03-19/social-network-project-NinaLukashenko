@@ -20,6 +20,7 @@ export class NewsFeedComponent implements OnInit {
       (data: NewsServerAnswer) => {
         console.log(data.news[0]);
         this.news = data.news;
+        console.log(this.news);
       },
       err => {
         console.log(err);
