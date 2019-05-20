@@ -1,3 +1,37 @@
-<p>
-  news-feed works!
-</p>
+<cdk-virtual-scroll-viewport class="news-container" [itemSize]="100">
+  <div class="container">
+    <div class="row">
+      <div *cdkVirtualFor="let item of news">
+        <div class="col-12 news-col">
+          <mat-card class="news-card">
+            <div class="news-card-content">
+              <mat-card-header>
+                <div
+                  class="news-owner-avatar"
+                  [ngStyle]="{
+                    'background-image': 'url(' + item?.owner.avatar + ')'
+                  }"
+                ></div>
+                <mat-card-title>{{ item?.owner.full_name }}</mat-card-title>
+                <mat-card-subtitle>{{ item?.owner.country }}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="news-pictures-block">
+                  <img
+                    mat-card-image
+                    [appImgLoader]="(item?.pictures)[0].url"
+                    [ngClass]="'news-pictures'"
+                  />
+                </div>
+                <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions>
+              </mat-card-content>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</cdk-virtual-scroll-viewport>

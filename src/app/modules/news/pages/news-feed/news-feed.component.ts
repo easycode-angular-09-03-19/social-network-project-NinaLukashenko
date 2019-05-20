@@ -9,6 +9,7 @@ import { NewsServerAnswer } from "../../interfaces/news-server-answer";
   styleUrls: ["./news-feed.component.css"]
 })
 export class NewsFeedComponent implements OnInit {
+  public news;
   constructor(
     private newsService: NewsService,
     private messageService: MessageService
@@ -17,7 +18,8 @@ export class NewsFeedComponent implements OnInit {
   ngOnInit() {
     this.newsService.getNews().subscribe(
       (data: NewsServerAnswer) => {
-        console.log(data);
+        console.log(data.news[0]);
+        this.news = data.news;
       },
       err => {
         console.log(err);

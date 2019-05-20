@@ -3,10 +3,19 @@ import { CommonModule } from "@angular/common";
 import { NewsFeedComponent } from "./pages/news-feed/news-feed.component";
 import { NewsRoutingModule } from "./news-routing.module";
 import { NewsService } from "./services/news.service";
+import { ScrollDispatchModule } from "@angular/cdk/scrolling";
+import { DirectivesModuleModule } from "../../common/modules/directives-module/directives-module.module";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [NewsFeedComponent],
-  imports: [CommonModule, NewsRoutingModule],
+  imports: [
+    CommonModule,
+    NewsRoutingModule,
+    ScrollDispatchModule,
+    DirectivesModuleModule,
+    MatCardModule
+  ],
   providers: [NewsService]
 })
 export class NewsModule {}
