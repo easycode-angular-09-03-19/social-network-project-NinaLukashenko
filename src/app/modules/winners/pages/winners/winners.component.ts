@@ -11,7 +11,7 @@ import { UserService } from "../../../../common/services/user.service";
   styleUrls: ["./winners.component.css"]
 })
 export class WinnersComponent implements OnInit {
-  private winners = [];
+  public winners = [];
   private authUserId;
   private authUserfavourites;
   constructor(

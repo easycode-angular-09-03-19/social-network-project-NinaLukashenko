@@ -15,7 +15,7 @@ import { ServerMsgAnswer } from "../../../../common/interfaces/server-msg-answer
 export class NewsFeedComponent implements OnInit {
   @ViewChild(CdkVirtualScrollViewport)
   viewport: CdkVirtualScrollViewport;
-  private news = [];
+  public news = [];
   public page = 1;
   public count = 15;
   private authUserId;
