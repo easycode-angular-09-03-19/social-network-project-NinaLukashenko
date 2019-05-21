@@ -1,5 +1,9 @@
 <div class="container-fluid p-0">
-  <cdk-virtual-scroll-viewport class="news-container" [itemSize]="275">
+  <cdk-virtual-scroll-viewport
+    class="news-container"
+    [itemSize]="275"
+    (scrolledIndexChange)="onScrollChange($event)"
+  >
     <div *cdkVirtualFor="let item of news">
       <div class="row">
         <div class="col-12">
@@ -15,18 +19,18 @@
               <p>{{ item?.owner.country }}</p>
               <p class="grey">Posted: {{ item?.date | date: "yyyy-MM-dd" }}</p>
               <button
-                *ngIf="true"
                 mat-stroked-button
                 color="warning"
-                (click)="onClickFollowing(following)"
+                (click)="onClickFollowing(item.owner)"
+                *ngIf="item?.owner.following"
               >
                 FOLLOWING
               </button>
               <button
-                *ngIf="true"
                 mat-stroked-button
                 color="primary"
-                (click)="onClickFollowing(following)"
+                (click)="onClickFollowing(item.owner)"
+                *ngIf="!item?.owner.following && item?.owner._id !== authUserId"
               >
                 FOLLOW
               </button>
@@ -36,11 +40,11 @@
                 <button
                   mat-flat-button
                   [ngClass]="'news-card-buttons'"
-                  (click)="onLikeClick(image)"
+                  (click)="onLikeClick(item)"
                 >
                   <i
                     class="fas fa-heart"
-                    [ngClass]="{ liked: image?.isLiked === true }"
+                    [ngClass]="{ liked: item?.isLiked === true }"
                   >
                   </i>
                 </button>
@@ -64,4 +68,7 @@
       </div>
     </div>
   </cdk-virtual-scroll-viewport>
+  <button (click)="scrollTo()" class="scroll-up-button">
+    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+  </button>
 </div>

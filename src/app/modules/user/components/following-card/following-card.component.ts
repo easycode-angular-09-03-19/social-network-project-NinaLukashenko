@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 })
 export class FollowingCardComponent implements OnInit {
   @Input() following;
+  @Input() authUserId;
   @Output() clickFollowing = new EventEmitter();
   constructor() {}
 

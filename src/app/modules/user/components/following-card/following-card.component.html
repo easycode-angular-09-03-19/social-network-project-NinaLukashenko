@@ -24,7 +24,7 @@
         FOLLOWING
       </button>
       <button
-        *ngIf="!following?.following"
+        *ngIf="!following?.following && following?._id !== authUserId"
         mat-stroked-button
         color="primary"
         (click)="onClickFollowing(following)"

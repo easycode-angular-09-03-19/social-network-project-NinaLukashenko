@@ -104,3 +104,15 @@ mat-card-actions {
 .liked {
   color: #ef39c2;
 }
+
+.scroll-up-button {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  background-color: #673ab7;
+  border: none;
+  border-radius: 0.25rem;
+  width: 55px;
+  height: 35px;
+  color: #f2f2f2;
+}

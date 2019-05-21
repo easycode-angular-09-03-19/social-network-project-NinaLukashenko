@@ -9,9 +9,9 @@ export class NewsService {
   private apiUrl: string = environment.apiUrl;
   constructor(private http: HttpClient) {}
 
-  getNews(): Observable<NewsServerAnswer> {
+  getNews(page, count): Observable<NewsServerAnswer> {
     let params = new HttpParams();
-    params = params.append("page", "1").append("count", "15");
+    params = params.append("page", page).append("count", count);
     const httpOptions = { params };
 
     return this.http.get<NewsServerAnswer>(

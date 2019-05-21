@@ -13,7 +13,7 @@ import { GlobalAuthService } from "../../../../common/services/global-auth.servi
 })
 export class ProfileFollowersComponent implements OnInit {
   @Input() userId;
-  private followers;
+  public followers;
   private authUserfollowings;
   private authUserId;
   constructor(

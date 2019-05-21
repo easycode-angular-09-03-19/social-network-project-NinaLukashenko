@@ -9,7 +9,7 @@ import { FavouritesServerAnswer } from "../../../../common/interfaces/favourites
   styleUrls: ["./profile-favourites.component.css"]
 })
 export class ProfileFavouritesComponent implements OnInit {
-  private favourites;
+  public favourites;
   @Input() userId;
   constructor(
     private userService: UserService,

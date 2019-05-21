@@ -3,6 +3,7 @@
     <ng-container *ngFor="let item of followers">
       <div class="col-lg-4 col-md-6 col-sm-12 p-0">
         <app-follower-card
+          [authUserId]="authUserId"
           [follower]="item"
           (clickFollow)="clickFollowHandler($event)"
         ></app-follower-card>

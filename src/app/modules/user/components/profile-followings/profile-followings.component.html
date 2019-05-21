@@ -4,6 +4,7 @@
       <div class="col-lg-4 col-md-6 col-sm-12 p-0">
         <app-following-card
           [following]="item"
+          [authUserId]="authUserId"
           (clickFollowing)="clickFollowingHandler($event)"
         ></app-following-card>
       </div>
