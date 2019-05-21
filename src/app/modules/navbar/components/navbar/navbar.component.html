@@ -6,6 +6,12 @@
   </ul>
   <div class="user mr-3">
     <app-notifications></app-notifications>
-    <a href="#" *ngIf="userId" [routerLink]="['/users/', userId]">My profile</a>
+    <a
+      href="#"
+      *ngIf="userId"
+      [routerLink]="['/users/', userId]"
+      (click)="onClickMyProfile()"
+      >My profile</a
+    >
   </div>
 </mat-toolbar>
