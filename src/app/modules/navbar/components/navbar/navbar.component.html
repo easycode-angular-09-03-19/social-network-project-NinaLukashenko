@@ -13,5 +13,13 @@
       (click)="onClickMyProfile()"
       >My profile</a
     >
+    <a
+      href="#"
+      *ngIf="userId"
+      (click)="onClickLogOut()"
+      class="logout"
+      [routerLink]="['/auth/login']"
+      >Log Out</a
+    >
   </div>
 </mat-toolbar>

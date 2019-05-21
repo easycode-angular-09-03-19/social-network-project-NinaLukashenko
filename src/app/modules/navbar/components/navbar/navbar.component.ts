@@ -34,4 +34,8 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
+
+  onClickLogOut() {
+    localStorage.removeItem("sn_app_token");
+  }
 }

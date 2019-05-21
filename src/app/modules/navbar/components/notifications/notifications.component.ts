@@ -8,16 +8,17 @@ import { NotificationService } from "../../services/notification.service";
 })
 export class NotificationsComponent implements OnInit {
   notifications;
-  notReadNotes;
   constructor(private notificationService: NotificationService) {}
 
   ngOnInit() {
+    this.getNotes();
+  }
+
+  getNotes() {
     this.notificationService.getNotifications().subscribe(
       data => {
         this.notifications = data;
-        this.notReadNotes = this.notifications.some(item => {
-          return item.readed === false;
-        });
+        console.log(this.notifications);
       },
       err => {
         console.log(err);
@@ -26,11 +27,13 @@ export class NotificationsComponent implements OnInit {
   }
 
   onClickClose(note) {
-    note.readed = true;
-    this.notReadNotes = this.notifications.some(item => {
-      return item.readed === false;
-    });
-    //запрос на сервер по изминению ноута
-    //endpoint для запроса - ?
+    this.notificationService.deleteNote(note._id).subscribe(
+      data => {
+        this.getNotes();
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

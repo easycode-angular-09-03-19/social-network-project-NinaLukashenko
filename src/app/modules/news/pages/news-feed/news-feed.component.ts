@@ -118,7 +118,11 @@ export class NewsFeedComponent implements OnInit {
   onClickFollowing(owner) {
     this.userService.subscription(owner._id).subscribe(
       (data: ServerMsgAnswer) => {
-        owner.following = !owner.following;
+        for (let i = 0; i < this.news.length; i++) {
+          if (this.news[i].owner._id === owner._id) {
+            this.news[i].owner.following = !this.news[i].owner.following;
+          }
+        }
       },
       err => {
         console.log(err);

@@ -19,3 +19,13 @@ span.person {
 .note-content button {
   padding: 0;
 }
+
+.notes {
+  font-size: 1.25rem;
+  color: #673ab7;
+  padding: 0.25rem;
+}
+
+.grey {
+  color: grey;
+}

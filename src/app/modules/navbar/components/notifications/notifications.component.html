@@ -1,12 +1,15 @@
 <div class="notification-block">
   <button [matMenuTriggerFor]="menu" mat-stroked-button color="primary">
     Notifications
-    <i class="fas fa-bell" *ngIf="!!notifications?.length && notReadNotes"></i>
+    <i class="fas fa-bell" *ngIf="!!notifications?.length"></i>
+    <span class="notes">{{ notifications?.length }}</span>
   </button>
   <mat-menu #menu="matMenu">
     <ng-container *ngFor="let item of notifications">
       <div mat-menu-item *ngIf="!item?.readed" class="note-content">
         <p>
+          <span class="grey">{{ item?.created_at | date: "yyyy-MM-dd" }}</span
+          >&nbsp;
           <span class="person">{{ item?.user_creator_id.full_name }}</span
           >&nbsp; {{ item?.message }}
         </p>

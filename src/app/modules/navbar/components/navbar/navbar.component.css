@@ -16,3 +16,12 @@ a:hover {
   color: #4d2d87;
   text-decoration: none;
 }
+
+.logout {
+  padding-left: 2.5rem;
+  color: #d6bcc1;
+}
+
+.logout:hover {
+  color: #d6bcc1;
+}

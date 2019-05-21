@@ -10,4 +10,10 @@ export class NotificationService {
   getNotifications() {
     return this.http.get(`${this.apiUrl}/public/users/notification`);
   }
+
+  deleteNote(id: string) {
+    return this.http.delete(
+      `${this.apiUrl}/public/users/notification-delete/${id}`
+    );
+  }
 }
