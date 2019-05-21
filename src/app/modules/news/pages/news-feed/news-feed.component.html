@@ -9,12 +9,15 @@
         <div class="col-12">
           <div class="news-block" style="text-align: center">
             <div class="news-info" style="text-align: center">
-              <div
-                class="news-owner-avatar"
-                [ngStyle]="{
-                  'background-image': 'url(' + item?.owner.avatar + ')'
-                }"
-              ></div>
+              <div class="news-owner-avatar">
+                <a href="" [routerLink]="['/users', item?.owner._id]">
+                  <img
+                    mat-card-image
+                    [src]="item?.owner.avatar"
+                    [ngClass]="'owner-avatar'"
+                  />
+                </a>
+              </div>
               <h6>{{ item?.owner.full_name }}</h6>
               <p>{{ item?.owner.country }}</p>
               <p class="grey">Posted: {{ item?.date | date: "yyyy-MM-dd" }}</p>

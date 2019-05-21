@@ -18,14 +18,14 @@
   border-radius: 1.25rem 0 0 0;
 }
 
-.news-owner-avatar {
+.owner-avatar {
   display: inline-block;
   height: 100px;
   width: 100px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  border-radius: 50%;
+  border-radius: 50% !important;
 }
 
 .news-container {
